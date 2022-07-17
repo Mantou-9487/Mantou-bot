@@ -48,4 +48,4 @@ def pre_load_extension():
 
 if __name__ == "__main__":
     bot.run(os.environ.get('TOKEN'))
-    app.run()
+    app.run(port=os.environ.get('PORT', 80))
