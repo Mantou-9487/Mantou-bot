@@ -1,0 +1,6 @@
+discord.py==1.7.3
+discord_components==2.1.2
+numpy==1.22.3
+python-dotenv==0.20.0
+requests==2.27.1
+yt_dlp==2022.5.18
