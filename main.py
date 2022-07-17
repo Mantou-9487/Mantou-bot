@@ -7,14 +7,13 @@ from discord_components import *
 from dotenv import load_dotenv
 from flask import Flask
 import os
-
-app = Flask(__name__)
+app=Flask(__name__)
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
 
 @app.route("/")
-def main():
+def home():
     return 'Bot is aLive!'
 
 @bot.event
