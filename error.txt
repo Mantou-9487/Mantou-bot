@@ -1,0 +1,23 @@
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        embed = discord.Embed()
+        embed = discord.Embed(color=discord.Colour.random(), title="出現了錯誤:x:", timestamp= datetime.datetime.utcnow(), inline=True) 
+        embed.set_author(name=bot.user.name, icon_url=str(bot.user.avatar_url))
+        embed.add_field(name="```{}```".format(error), value="以上為錯誤內容", inline=True)
+        await ctx.channel.send(embed=embed)
+    if isinstance(error, commands.MissingRequiredArgument):
+        embed = discord.Embed()
+        embed = discord.Embed(color=discord.Colour.random(), title="出現了錯誤:x:", timestamp= datetime.datetime.utcnow(), inline=True) 
+        embed.set_author(name=bot.user.name, icon_url=str(bot.user.avatar_url))
+        embed.add_field(name="```{}```".format(error), value="請將此錯誤提交給開發者", inline=True)
+        await ctx.channel.send(embed=embed)
+
+@bot.event
+async def on_error(error):
+    print(error)
+
+
+channel = ctx.author.voice
+        if channel:
+            await channel.channel.connect()
