@@ -1,2 +1,2 @@
 main: python main.py
-web: gunicorn -b :$PORT flask:app
+web: gunicorn -b :$PORT web:app
