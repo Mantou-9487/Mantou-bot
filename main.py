@@ -4,16 +4,12 @@ import datetime
 import requests
 from discord.ext import commands
 from discord_components import *
-from dotenv import load_dotenv
 import os
 
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
 
-@app.route("/")
-def home():
-    return 'Bot is aLive!'
 
 @bot.event
 async def on_ready():
