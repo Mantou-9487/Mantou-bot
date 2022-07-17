@@ -5,9 +5,8 @@ import requests
 from discord.ext import commands
 from discord_components import *
 from dotenv import load_dotenv
-from flask import Flask
 import os
-app=Flask('')
+
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
@@ -21,6 +20,7 @@ async def on_ready():
     print("Bot上線了!")
     await bot.change_presence(activity=discord.Game(name="我的作者:Man頭(´・ω・)"))
     pre_load_extension()
+    print('讀取指令成功')
 
 @bot.command()
 @commands.is_owner()
@@ -44,8 +44,6 @@ def pre_load_extension():
     for Filename in os.listdir('./cogs'):
         if Filename.endswith('.py'):
             bot.load_extension(F'cogs.{Filename[:-3]}')
-            print(len(Filename))
 
 if __name__ == "__main__":
     bot.run(os.environ.get('TOKEN'))
-    app.run(port=os.environ.get('PORT', 80))
