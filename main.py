@@ -19,6 +19,7 @@ def home():
 @bot.event
 async def on_ready():
     print("Bot上線了!")
+    app.run()
     await bot.change_presence(activity=discord.Game(name="我的作者:Man頭(´・ω・)"))
 
 @bot.command()
@@ -44,6 +45,5 @@ for Filename in os.listdir('./cogs'):
         bot.load_extension(F'cogs.{Filename[:-3]}')
 
 if __name__ == "__main__":
-    app.run()
     load_dotenv()
-    bot.run(os.getenv('TOKEN')) 
+    bot.run(os.getenv('TOKEN'))
