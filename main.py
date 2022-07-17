@@ -7,7 +7,7 @@ from discord_components import *
 from dotenv import load_dotenv
 from flask import Flask
 import os
-app=Flask(__name__)
+app=Flask('')
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
