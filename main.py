@@ -4,8 +4,9 @@ import datetime
 import requests
 from discord.ext import commands
 from discord_components import *
+from dotenv import load_dotenv
 import os
-import keep_alive
+
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
@@ -38,6 +39,5 @@ for Filename in os.listdir('./cogs'):
         bot.load_extension(F'cogs.{Filename[:-3]}')
 
 if __name__ == "__main__":
-    keep_alive.keep_alive()
-    my_secret = os.environ['TOKEN']
-    bot.run(my_secret) 
+    load_dotenv()
+    bot.run(os.getenv('TOKEN')) 
