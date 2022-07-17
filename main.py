@@ -5,11 +5,17 @@ import requests
 from discord.ext import commands
 from discord_components import *
 from dotenv import load_dotenv
+from flask import Flask
 import os
 
+app = Flask(__name__)
 
 bot = commands.Bot(command_prefix='+')
 bot.remove_command("help")
+
+@app.route("/")
+def main():
+    return 'Bot is aLive!'
 
 @bot.event
 async def on_ready():
@@ -39,5 +45,6 @@ for Filename in os.listdir('./cogs'):
         bot.load_extension(F'cogs.{Filename[:-3]}')
 
 if __name__ == "__main__":
+    app.run()
     load_dotenv()
     bot.run(os.getenv('TOKEN')) 
