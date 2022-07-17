@@ -45,5 +45,4 @@ for Filename in os.listdir('./cogs'):
         bot.load_extension(F'cogs.{Filename[:-3]}')
 
 if __name__ == "__main__":
-    load_dotenv()
-    bot.run(os.getenv('TOKEN'))
+    bot.run(os.environ.get('TOKEN'))
