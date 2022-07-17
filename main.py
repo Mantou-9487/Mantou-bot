@@ -19,8 +19,8 @@ def home():
 @bot.event
 async def on_ready():
     print("Bot上線了!")
-    app.run()
     await bot.change_presence(activity=discord.Game(name="我的作者:Man頭(´・ω・)"))
+    pre_load_extension()
 
 @bot.command()
 @commands.is_owner()
@@ -40,9 +40,12 @@ async def reload(ctx, extension):
     bot.reload_extension(F'cogs.{extension}')
     await ctx.send(F'已重新載入 {extension}')
 
-for Filename in os.listdir('./cogs'):
-    if Filename.endswith('.py'):
-        bot.load_extension(F'cogs.{Filename[:-3]}')
+def pre_load_extension():
+    for Filename in os.listdir('./cogs'):
+        if Filename.endswith('.py'):
+            bot.load_extension(F'cogs.{Filename[:-3]}')
+            print(len(Filename))
 
 if __name__ == "__main__":
     bot.run(os.environ.get('TOKEN'))
+    app.run()
