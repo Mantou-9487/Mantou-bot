@@ -12,10 +12,12 @@ class info(Cog_Extension):
     @commands.command(aliases=['info'])
     async def _info(self, ctx):
         embed = discord.Embed()
-        embed = discord.Embed(title="鰻頭機器人", description="", color=discord.Colour.random(), timestamp= datetime.datetime.utcnow())
-        embed = discord.Embed(color=discord.Colour.random(), title="機器人狀態:robot:", timestamp= datetime.datetime.utcnow(), inline=True) 
+        embed = discord.Embed(title="鰻頭機器人#2692", description="", color=discord.Colour.random(), timestamp= datetime.datetime.utcnow())
+        embed = discord.Embed(color=discord.Colour.random(), title="機器人狀態 :robot:", inline=True) 
+        embed.set_author(name=self.bot.user.name, icon_url=str(self.bot.user.avatar_url))
         embed.add_field(name="系統型號", value="{}".format(str(platform.system() + platform.release()), inline=False))
-        embed.add_field(name="查看延遲", value="Ping", inline=False)
+        embed.add_field(name="託管商", value="Heroku", inline=True)
+        embed.set_author(name="本機器人使用Discord.py烹煮而成 (？")
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
