@@ -17,7 +17,7 @@ class info(Cog_Extension):
         embed.set_author(name=self.bot.user.name, icon_url=str(self.bot.user.avatar_url))
         embed.add_field(name="系統型號", value="{}".format(str(platform.system() + platform.release()), inline=False))
         embed.add_field(name="託管商", value="Heroku", inline=True)
-        embed.set_author(name="本機器人使用Discord.py烹煮而成 (？")
+        embed.set_footer(name="本機器人使用Discord.py烹煮而成 (？")
         await ctx.channel.send(embed=embed)
 
 def setup(bot):
