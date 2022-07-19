@@ -18,9 +18,9 @@ class uptime(Cog_Extension):
         embed.add_field(name="Uptime", value=text)
         embed.set_footer(text="Sponsored by altcointrain.com - Choo!!! Choo!!!")
         try:
-            await self.bot.say(embed=embed)
+            await ctx.channel.send(embed=embed)
         except discord.HTTPException:
-            await self.bot.say("Current uptime: " + text)
+            await ctx.channel.send("Current uptime: " + text)
 
 
 def setup(bot):
