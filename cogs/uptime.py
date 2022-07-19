@@ -15,7 +15,7 @@ class uptime(Cog_Extension):
         difference = int(round(current_time - start_time))
         text = str(datetime.timedelta(seconds=difference))
         embed = discord.Embed(colour=ctx.message.author.top_role.colour)
-        embed.add_field(name="Uptime", value=text)
+        embed.add_field(name="Uptime", value=f"<t:{text}>")
         embed.set_footer(text="Sponsored by altcointrain.com - Choo!!! Choo!!!")
         try:
             await ctx.channel.send(embed=embed)
