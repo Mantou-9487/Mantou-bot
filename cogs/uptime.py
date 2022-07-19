@@ -10,7 +10,7 @@ class uptime(Cog_Extension):
         self.bot = bot
 
     @commands.command(pass_context=True, aliases=['uptime'])
-    async def uptime(self, ctx):
+    async def _uptime(self, ctx):
         current_time = time.time()
         difference = int(round(current_time - start_time))
         text = str(datetime.timedelta(seconds=difference))
