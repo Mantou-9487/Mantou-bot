@@ -24,4 +24,4 @@ class uptime(Cog_Extension):
 
 
 def setup(bot):
-    bot.add_cog(Uptime(bot))
+    bot.add_cog(uptime(bot))
