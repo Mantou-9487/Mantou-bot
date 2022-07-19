@@ -1,14 +1,15 @@
 import discord, datetime, time
 from discord.ext import commands
+from core.classes import Cog_Extension
 
 start_time = time.time()
 
 
-class Uptime:
+class uptime(Cog_Extension):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, aliases=['uptime'])
     async def uptime(self, ctx):
         current_time = time.time()
         difference = int(round(current_time - start_time))
