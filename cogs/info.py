@@ -21,7 +21,7 @@ class info(Cog_Extension):
         #Emoji
         linux_emoji = discord.utils.get(guild.emojis, name="linux")
         heroku_emoji = discord.utils.get(guild.emojis, name="heroku")
-        clock_emoji = discord.utils.get(ctx.message.guild.emojis, name="alarm_clock")
+        clock_emoji = discord.utils.get(guild.emojis, name="clock")
         #Embed
         embed = discord.Embed()
         embed = discord.Embed(title="鰻頭機器人#2692", description="", color=discord.Colour.random(), timestamp= datetime.datetime.utcnow())
