@@ -16,7 +16,7 @@ class luck(Cog_Extension):
         embed = discord.Embed()
         embed = discord.Embed(color=discord.Colour.random(), title="運勢唬爛器", description="", timestamp= datetime.datetime.utcnow()) 
         embed.set_author(name=self.bot.user.name, icon_url=str(self.bot.user.avatar_url))
-        embed.add_field(name="今日運勢" , value="||{}||".format(f'{l}'), inline=True)
+        embed.add_field(name=f"{ctx.author.mention}\n今日運勢" , value="||{}||".format(f'{l}'), inline=True)
         await ctx.channel.send(f"{ctx.author.mention}")
         await ctx.channel.send(embed=embed)
     
