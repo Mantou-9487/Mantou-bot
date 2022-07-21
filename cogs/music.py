@@ -33,7 +33,7 @@ class music(Cog_Extension):
             if file.endswith(".json"):
                 if not voice.is_playing():
                     with open('playlist.json', 'r+') as jf:
-                        showtitle()
+                        showinfo()
                         print("我是一號測試點")
                         data = json.load(jf)
                         temp = data["Music"]
@@ -45,7 +45,7 @@ class music(Cog_Extension):
 
         if voice.is_playing():
             with open('playlist.json', 'r+') as jf:
-                showtitle()
+                showinfo()
                 data = json.load(jf)
                 temp = data["Music"]
                 queueurl = {"Title": f"{title}" + f" [{id}]"}
@@ -54,13 +54,13 @@ class music(Cog_Extension):
         else:
 
             with open('playlist.json', 'r+') as jf:
-                showtitle()
+                showinfo()
                 voice.play(discord.FFmpegPCMAudio(f"{data['Music'][0]['Title']}.mp3"), after = lambda e : play_next(ctx, self))
                 voice.is_playing()
         
         if voice.disconnect():
             with open('playlist.json', 'r+') as jf:
-                showtitle()
+                showinfo()
                 data = json.load(jf)
                 del data['Music']
 
@@ -98,16 +98,13 @@ def play_next(self, ctx):
         if len(queues['Music']) >= 2:
             del queues['Music'][0]
             print(queues['Music'][0]['Title'], "new_song")
-            showtitle()
+            showinfo()
             voice = discord.utils.get(self.bot.voice_clients, guild=ctx.guild)
             voice.play(discord.FFmpegPCMAudio(f"{queues['Music'][0]['Title']}.mp3"), after = lambda e : play_next(ctx, self))
             voice.is_playing()
 
 
-def setup(bot):
-    bot.add_cog(music(bot))
-
-def showtitle():
+def showinfo():
     print("我是二號測試點")
     ydl_opts = {
             'format': 'bestaudio/best',
@@ -138,3 +135,6 @@ def write_json(data, filename="playlist.json"):
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
 
+
+def setup(bot):
+    bot.add_cog(music(bot))
